@@ -1,0 +1,6 @@
+# Basic packages used in many of the tutorials.
+# pip install --no-cache-dir -r requirements.txt
+
+numpy==1.16.6
+opencv-python==3.4.3.18
+pandas==0.24.2

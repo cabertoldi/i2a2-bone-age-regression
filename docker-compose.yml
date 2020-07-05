@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  app:
+    build: .
+    tty: true ## add colors to docker
+    working_dir: /app/i2a2-bone-age-regression
+    volumes:
+      - .:/app/i2a2-bone-age-regression
+    networks:
+      - i2a2
+    ports:
+      - 5001:3000
+
+networks:
+  i2a2:
+    external: true
