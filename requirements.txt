@@ -1,6 +1,18 @@
 # Basic packages used in many of the tutorials.
 # pip install --no-cache-dir -r requirements.txt
 
+# dataset operations
 numpy==1.16.6
-opencv-python==3.4.3.18
 pandas==0.24.2
+
+# prepare image
+opencv-python==3.4.3.18
+
+# neural network
+keras==2.2.2
+keras-applications==1.0.4
+keras-preprocessing==1.0.2
+pycosat==0.6.3
+scikit-image==0.13.1   
+scikit-learn==0.19.1 
+tensorflow==1.5

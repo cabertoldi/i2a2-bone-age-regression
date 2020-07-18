@@ -5,7 +5,6 @@ import os
 
 def normalize_images(path):
     df = pd.read_csv(f'./data/{path}.csv')
-    df = df.head(10)
 
     for filename in df['fileName']:
        _clean_image(path, filename)
@@ -29,14 +28,13 @@ def _clean_image(path, filename):
         print('width', width)
 
         if width > 800:
-            # Cut the image in half
             width_cutoff = width // 2
             image = image[:, width_cutoff:]
 
-    if not os.path.exists('./data/clean-images'):
-        os.makedirs('./data/clean-images')
+    if not os.path.exists(f'./data/clean-images-{path}'):
+        os.makedirs(f'./data/clean-images-{path}')
 
-    cv2.imwrite(f"./data/clean-images/{filename}", image)
+    cv2.imwrite(f"./data/clean-images-{path}/{filename}", image)
 
 def _get_contours(image):
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
