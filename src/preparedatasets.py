@@ -6,7 +6,7 @@ from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import ImageDataGenerator
 
-def organize_train_datasets():
+def organize_datasets():
     df_train = pd.read_csv('./data/train.csv')
 
     df_train_female = df_train.query('patientSex == "F"')
@@ -51,7 +51,7 @@ def _extract_groups(df_train):
     return first_group, second_group, third_group, fourth_group, last_group
 
 def _image_generated(filename, number_samples):
-    image = load_img(f"./data/clean-images-train/{filename}")
+    image = load_img(f"./data/clean-images/{filename}")
     data = img_to_array(image)
 
     samples = expand_dims(data, 0)
@@ -72,7 +72,7 @@ def _update_dataset(dataset, patientSex, number_samples):
     for filename in dataset['fileName']:
         new_images = _image_generated(filename, number_samples)
         for idx, image in enumerate(new_images):
-            cv2.imwrite(f"./data/clean-images-train/{idx}-{filename}", image)
+            cv2.imwrite(f"./data/clean-images/{idx}-{filename}", image)
 
             new_data = pd.DataFrame({"fileName":[f"{idx}-{filename}"], "patientSex":[patientSex], "boneage": [mean_bornage]})
             dataset = pd.concat([dataset, new_data], ignore_index=True)

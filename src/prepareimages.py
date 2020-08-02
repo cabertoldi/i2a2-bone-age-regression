@@ -31,10 +31,10 @@ def _clean_image(path, filename):
             width_cutoff = width // 2
             image = image[:, width_cutoff:]
 
-    if not os.path.exists(f'./data/clean-images-{path}'):
-        os.makedirs(f'./data/clean-images-{path}')
+    if not os.path.exists(f'./data/clean-images'):
+        os.makedirs(f'./data/clean-images')
 
-    cv2.imwrite(f"./data/clean-images-{path}/{filename}", image)
+    cv2.imwrite(f"./data/clean-images/{filename}", image)
 
 def _get_contours(image):
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

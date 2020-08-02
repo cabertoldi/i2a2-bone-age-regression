@@ -9,10 +9,11 @@ pandas==0.24.2
 opencv-python==3.4.3.18
 
 # neural network
-keras==2.2.2
-keras-applications==1.0.4
-keras-preprocessing==1.0.2
+keras==2.2.4
+keras-applications==1.0.6
+keras-preprocessing==1.0.5
+keras-resnet==0.2.0
 pycosat==0.6.3
-scikit-image==0.13.1   
-scikit-learn==0.19.1 
+scikit-image==0.13.1
+scikit-learn==0.19.1
 tensorflow==1.5
