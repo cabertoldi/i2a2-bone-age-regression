@@ -51,7 +51,6 @@ def _create_model():
       layer.trainable = False
 
     x = GlobalMaxPooling2D()(base_model.output)
-    x = Flatten()(x)
     x = Dense(16, activation = 'relu')(x)
     x = Dense(1, activation = 'linear')(x)
 
@@ -91,9 +90,6 @@ def _train(patientSex, images, outputs):
            verbose=1,
            validation_data=(x_valid, y_valid),
            callbacks=checkpointer)
-    
-    plt.plot(history.history['mse'])
-    plt.show()
     
     # carregando os pesos que geraram a melhor precisão de validação
     model.load_weights(f'./data/model.hand.x-ray.weights.{patientSex}.best.hdf5')
