@@ -26,12 +26,12 @@ def _run_model(patientSex, df):
 
     X = X.astype('float32')/255
 
-    max_bornage = Y.max()
-    Y = Y / max_bornage
+    max_bornages = Y.max()
+    Y = Y / max_bornages
 
     model = init_model(f'{patientSex}', df_submission)
 
-    predicted = model.predict_generator(X)
+    predicted = model.predict(X)
     predicted_months = max_bornages*(predicted.flatten())
 
     filenames = df_submission['fileName']
