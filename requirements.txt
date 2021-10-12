@@ -6,7 +6,7 @@ numpy==1.16.6
 pandas==0.24.2
 
 # prepare image
-opencv-python==3.4.3.18
+opencv-python==3.4.7.28
 
 # neural network
 keras==2.2.4
