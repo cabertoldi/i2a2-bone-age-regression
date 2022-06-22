@@ -2,7 +2,7 @@
 # pip install --no-cache-dir -r requirements.txt
 
 # dataset operations
-numpy==1.16.6
+numpy==1.22.0
 pandas==0.24.2
 
 # prepare image
